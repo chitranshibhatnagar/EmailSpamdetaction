@@ -1,0 +1,15 @@
+Step-1: Made a EC2 instance named Assignment1 on Amazon web service (AWS).
+Step-2: Connected to EC2 instance.
+Step-3: Installed Hadoop using “wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz” .Then, Extracted the file using “tar -xvzf hadoop-3.3.4.tar.gz”
+Then move the extracted file to usr/local using “sudo mv hadoop-3.3.4 /usr/local/Hadoop”.
+For setting the path, open Hadoop-env.sh: “sudo nano /usr/local/hadoop/etc/hadoop/hadoop-env.sh”. Add “export JAVA_HOME=$ (readlink -f /usr/bin/java | sed “s:bin/java::”) to set the value dynamically.
+Now, save and exit the file and apply the current changes using “source ~/.bashrc”.
+Step-4: Installed pig using “wget -c https://dlcdn.apache.org/pig/pig-0.16.0/pig-0.16.0.tar.gz”. Then, extracted using “tar -xvzf pig-0.16.0.tar.gz” 
+Then move the extracted files into usr/local/Hadoop using “sudo mv pig-0.16.0 /usr/local/hadoop/”
+Open “nano ~/.bashrc” and add path “export PIG_HOME=/usr/local/Hadoop/pig-0.16.0”. Now, save and exit the file. Apply the current changes using “source ~/.bashrc”.
+Now, we can launch pig by using command “pig”.
+Step-5: Installed Hive using “wget  https://dlcdn.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz ”. Extract the file using “tar -xvzf apache-hive-3.1.2-bin.tar.gz ”.
+To access hive environment variable – “sudo nano .bashrc”
+Append [“export HIVE_HOME= "usr/local/hadoop/apache-hive-3.1.2-bin" 
+export PATH=$PATH:$HIVE_HOME/bin”] to .bashrc file. Now, save and exit the file and apply the current changes using “source ~/.bashrc”.
+Now, Access the hive-config.sh file using “sudo nano $HIVE_HOME/bin/hive-config.sh” to connect hive with HDFS. Add, “export HADOOP_HOME = /usr/local/hadoop/Hadoop-3.3.4”. Save and exit the config file. 
